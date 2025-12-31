@@ -1,0 +1,70 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+ @keyframes float {
+          0%, 100% {
+            transform: translateY(100vh) rotate(0deg);
+            opacity: 1;
+          }
+          50% {
+            opacity: 0.8;
+          }
+          100% {
+            transform: translateY(-100vh) rotate(360deg);
+            opacity: 0;
+          }
+        }
+
+        .animate-float {
+          animation: float linear infinite;
+        }
+
+        .firework {
+          position: absolute;
+          width: 4px;
+          height: 4px;
+          border-radius: 50%;
+          animation: firework-burst 1.5s ease-out infinite;
+        }
+
+        @keyframes firework-burst {
+          0% {
+            transform: translate(0, 0);
+            opacity: 1;
+            box-shadow: 
+              0 0 10px #fff,
+              0 0 20px #ff00de,
+              0 0 30px #00fff9,
+              0 0 40px #ffd700;
+          }
+          100% {
+            transform: translate(
+              calc((50 - 50) * 2px),
+              calc((50 - 50) * 2px)
+            );
+            opacity: 0;
+            box-shadow: none;
+          }
+        }
+
+        .dark-glass {
+          background: rgba(0, 0, 0, 0.6);
+          backdrop-filter: blur(20px);
+          border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        @keyframes fade-in {
+          from {
+            opacity: 0;
+            transform: translateY(20px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+
+        .animate-fade-in {
+          animation: fade-in 0.5s ease-out;
+        }
